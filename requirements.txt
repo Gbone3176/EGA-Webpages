@@ -1,10 +1,12 @@
-click
+blinker==1.8.2
+click==8.1.7
 Flask==2.3.2
+Flask-Login==0.6.3
 Flask-MySQLdb==0.2.0
-itsdangerous
+importlib_metadata==8.5.0
+itsdangerous @ file:///croot/itsdangerous_1716533337253/work
 Jinja2==3.1.4
-MarkupSafe
+MarkupSafe==2.1.5
 mysqlclient==2.0.3
 Werkzeug==3.0.3
-
-
+zipp==3.20.2
