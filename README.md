@@ -84,9 +84,9 @@ Then start the application by executing the run file
 set FLASK_APP=main
 flask run
 
+```
+
 
 ### 6. Acknowledgement
-This project was completed based on xx, and I would like to express my sincere gratitude to xx
+This project was completed based on https://github.com/HarunMbaabu/Login-System-with-Python-Flask-and-MySQL, and I would like to express my sincere gratitude to https://github.com/HarunMbaabu/Login-System-with-Python-Flask-and-MySQL~
 
-
-```
