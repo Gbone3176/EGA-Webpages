@@ -1,0 +1,11 @@
+{% extends "home/layout.html" %}
+
+{% block title %}Page Not Found{% endblock %}
+
+{% block content %}
+<div class="text-center" style="padding: 50px 0;">
+    <h1 class="display-4" style="color: #61d2ff;">404</h1>
+    <p class="lead" style="color: #c1c4c8;">Oops! The page you're looking for doesn't exist.</p>
+    <a href="{{ url_for('home') }}" class="button_err">Return</a>
+</div>
+{% endblock %}

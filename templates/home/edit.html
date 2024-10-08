@@ -1,0 +1,24 @@
+{% extends 'home/layout.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<h2>Edit Article</h2>
+<form action="{{ url_for('edit_article', id=article.id) }}" method="post" class="article-form">
+    <div class="form-group">
+        <label for="title">标题</label>
+        <input type="text" id="title" name="title" value="{{ article.title }}" required class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="published_date">发布日期</label>
+        <input type="date" id="published_date" name="published_date" value="{{ article.published_date }}" required class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="published_date">发布日期</label>
+        <input type="text" id="url" name="url" value="{{ article.url }}" required class="form-control">
+    </div>
+
+    <button type="submit" class="btn-submit">更新文章</button>
+</form>
+{% endblock %}

@@ -1,0 +1,164 @@
+{% extends 'home/layout.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .carousel {
+            width: 60%;
+            float: left;
+            margin-right: 20px;
+        }
+        .timeline-container {
+            overflow-x: auto; /* 启用横向滚动 */
+            white-space: nowrap; /* 防止换行 */
+            margin: 40px 0;
+        }
+
+        .timeline {
+            display: inline-flex; /* 使子元素横向排列 */
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 200px; /* 控制每个时间项的宽度 */
+            margin-right: 20px; /* 调整间距 */
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 10px; /* 初始宽度 */
+            height: 10px; /* 初始高度 */
+            background: #61d2ff;
+            border-radius: 50%;
+            left: 10%; /* 调整圆点位置 */
+            transform: translateX(-50%); /* 居中圆点 */
+            top: -15px; /* 调整圆点垂直位置 */
+            transition: width 0.3s, height 0.3s; /* 添加过渡效果 */
+        }
+
+        .timeline-item:hover::after {
+            width: 15px; /* 悬停时宽度 */
+            height: 15px; /* 悬停时高度 */
+        }
+
+
+        .timeline-content {
+            background: #fff;
+            padding: 10px;
+            padding-bottom: 20px; /* 增加下边界宽度 */
+            border-radius: 5px;
+        }
+
+
+    </style>
+    <title>活动页面</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row my-4">
+            <div class="col-md-6">
+                <div id="carousel-1" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{{ url_for('static', filename='activities/act1.jpg') }}" class="d-block w-100" alt="活动一">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ url_for('static', filename='activities/act3.jpg') }}" class="d-block w-100" alt="活动一 - 图片三">
+                        </div>
+                        <!-- 可以添加更多轮播图 -->
+                    </div>
+                    <a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>PCB原理讲座与实践</h4>
+                <p>这是活动一的描述内容，介绍活动的细节和亮点。</p>
+            </div>
+        </div>
+
+        <div class="row my-4">
+            <div class="col-md-6">
+                <h4>3D打印原理与实践</h4>
+                <p>这是活动二的描述内容，介绍活动的细节和亮点。</p>
+            </div>
+            <div class="col-md-6">
+                <div id="carousel-2" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{{ url_for('static', filename='activities/act1.jpg') }}" class="d-block w-100" alt="活动二">
+                        </div>
+                        <!-- 可以添加更多轮播图 -->
+                    </div>
+                    <a class="carousel-control-prev" href="#carousel-2" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel-2" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 时间线 -->
+    <div class="timeline-container">
+        <h3 class="timeline-content">
+            本学期活动预览
+        </h3>
+        <div class="timeline">
+            {% for activity in activities %}
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>{{activity.name}}</h4>
+                    <p>
+                        时间 : {{activity.date}}<br>
+                        地点 : {{activity.location}}<br>
+                        id : {{activity.id}}
+                        <a href="{{ activity.url }}" class="button">GO</a>
+                        <a href="{{ url_for('edit_activity', id=activity.id) }}" class="button">Edit</a>
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+
+            <!-- 添加更多事件 -->
+        </div>
+    </div>
+    {% if logged_in %}
+        <!-- Add new article form only visible to logged-in users -->
+        <h6>Add New Activity</h6>
+        <form action="{{ url_for('add_activity') }}" method="post">
+            <input type="text" name="name" placeholder="活动名称" required>
+            <input type="date" name="date" required>
+            <input type="text" name="location" placeholder="活动场地" required>
+            <input type="text" name="url" placeholder="报名链接" required>
+            <input type="submit" value="Add Activity">
+        </form>
+    {% endif %}
+</body>
+{% endblock %}
