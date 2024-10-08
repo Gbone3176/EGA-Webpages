@@ -68,27 +68,7 @@ pip install -r requirements.txt
 ```
 
 
-### 6. Create the database and table 
-
-```sql
--- Create the  database named "loginapp"
-CREATE DATABASE loginapp;
-
-
--- Switch to 'loginapp' database; 
-USE loginapp; 
-
-
--- Create 'account' table with id, username,email, password columns. 
-CREATE TABLE accounts (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  username VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  password VARCHAR(255) NOT NULL
-); 
-```
-
-### 6. Run the application 
+### 5. Run the application 
 
 **For linux and macOS**
 Make the run file executable by running the code
@@ -103,5 +83,10 @@ Then start the application by executing the run file
 ```
 set FLASK_APP=main
 flask run
+
+
+### 6. Acknowledgement
+This project was completed based on xx, and I would like to express my sincere gratitude to xx
+
 
 ```
