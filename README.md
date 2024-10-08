@@ -6,12 +6,6 @@
 >>> python unit_test.py
 ```
 
-### Requirements(Minimum)
-
-Download and install Python, I am using Python 3.7.2, make sure to check the box Add Python to PATH on the installation setup screen. </p>
-Download and install MySQL Community Server and MySQL Workbench, you can skip this step if you already have a MySQL server set up. </p>
-
-
 **Major operations handled**
 
 1). Form Design — Design a login and registration form with HTML5 and CSS3.<br>
@@ -22,10 +16,10 @@ Download and install MySQL Community Server and MySQL Workbench, you can skip th
 6). Routes — Routing will allow us to point our URL's to our functions.<br>
 
 ### Requirements ,Packages used and Installation
-Download and install Python, for this tutorial I'll be using Python 3.7.2, make sure to check the box Add Python to PATH on the installation setup screen
+please refer to the requirements.txt
  
 ### Installation
-Navigate to your current project directory for this case it will be **Login-System-with-Python-Flask-and-MySQL**. <br>
+Navigate to your current project directory for this case it will be **EGA-Webpages**. <br>
 
 ### 1 .Fork the repository and Clone it into your local machine
 ```csharp
@@ -111,18 +105,3 @@ set FLASK_APP=main
 flask run
 
 ```
-### Application Flow. 
-
-**Register Page:**
-
-![Image description](https://github.com/HarunMbaabu/Login-System-with-Python-Flask-and-MySQL/blob/master/static/images/Screenshot%20from%202023-09-17%2018-29-57.png?raw=true)  
-
-**Log In Page:** 
-
-![Image description](https://github.com/HarunMbaabu/Login-System-with-Python-Flask-and-MySQL/blob/master/static/images/Screenshot%20from%202023-09-17%2018-29-52.png?raw=true)
-
-**Home Page After Log In:**
-
-![Image description](https://github.com/HarunMbaabu/Login-System-with-Python-Flask-and-MySQL/blob/master/static/images/Screenshot%20from%202023-09-17%2018-29-28.png?raw=true)
-
-Note:-The version of python i use will change in future , so check your python IDE with latest version and if this doesn't work get in touch with me on twitter, https://twitter.com/HarunMbaabu. 
