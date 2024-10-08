@@ -6,7 +6,7 @@
   	-moz-osx-font-smoothing: grayscale;
 }
 body , #auth{
-  	background-color: #435165;
+  	background-color: #ffffff;
   	margin: 0;
 }
 .login, .register {
@@ -93,11 +93,19 @@ body , #auth{
   	display: inline-flex;
   	align-items: center;
 }
+
+.logo-img {
+    width: 50px;  /* 调整图片宽度 */
+    height: auto;  /* 保持图片比例 */
+    margin-right: 10px;  /* 图片和文字的间距 */
+    vertical-align: middle;  /* 图片与文字垂直居中 */
+}
+
 .navtop div h1 {
   	flex: 1;
   	font-size: 24px;
   	padding: 0;
- 	margin: 0;
+ 	margin: 5px;
   	color: #eaebed;
   	font-weight: normal;
 }
@@ -114,7 +122,7 @@ body , #auth{
   	color: #eaebed;
 }
 body.loggedin {
-  	background-color: #f3f4f7;
+  	background-color: #ffffff;
 }
 .content {
   	width: 1000px;
@@ -144,4 +152,291 @@ body.loggedin {
 .content > div p {
 	padding: 5px;
 	margin: 0 0 10px 0;
+}
+
+footer {
+    color: #808080;
+    padding: 1px;
+    text-align: center; /* 文本居中 */
+    position: relative; /* 使绝对定位的元素相对于 footer 进行定位 */
+}
+
+/* footer图片样式 */
+.footer-image {
+    width: 20%;
+    height: auto; /* 高度自动 */
+    display: block; /* 使图片在块级中显示 */
+    margin: 0 auto; /* 图片水平居中 */
+    margin-bottom: -30px; /* 调整图片底部间距，增加或减少这个值以靠近或远离文本 */
+}
+
+.input-container {
+    position: relative; /* 使容器相对定位 */
+}
+
+.feedback-icon {
+    position: absolute; /* 绝对定位图标 */
+    right: 10px; /* 图标距离输入框右侧10像素 */
+    top: 37%; /* 垂直居中 */
+    transform: translateY(-50%); /* 确保垂直居中 */
+    color: green;
+    font-size: 1.2em;
+    pointer-events: none; /* 防止图标的鼠标事件 */
+    z-index: 1; /* 确保图标在输入框上方 */
+}
+
+input[type="password"] {
+    padding-right: 30px; /* 为右侧反馈图标留出空间 */
+}
+
+/* 表格样式 */
+table {
+    width: 100%;
+    border-collapse: collapse; /* 合并边框 */
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px; /* 单元格内边距 */
+    text-align: left; /* 左对齐 */
+    border-bottom: 1px solid #ddd; /* 下边框 */
+}
+
+th {
+    background-color: #fafaff; /* 表头背景色 */
+    color: #333; /* 表头文字颜色 */
+}
+
+/* 表格行悬停效果 */
+tr:hover {
+    background-color: #d9d9d9; /* 悬停时背景色 */
+}
+
+/* 按钮样式 */
+.button {
+    background-color: #5bcbf4; /* 按钮背景色 */
+    color: white; /* 按钮文字颜色 */
+    padding: 5px 5px; /* 内边距 */
+    border: none; /* 无边框 */
+    border-radius: 15px; /* 圆角 */
+    text-decoration: none; /* 无下划线 */
+    transition: background-color 0.3s; /* 背景色过渡效果 */
+	font-size: 12px; /* 调整文字大小 */
+	font-weight: bold;
+}
+
+.button:hover {
+    background-color: #188ed2 ; /* 悬停时按钮背景色 */
+	color: #96a6b0; /* 悬停时按钮文字颜色 */
+}
+
+.button_err {
+    background-color: #5bcbf4; /* 按钮背景色 */
+    color: white; /* 按钮文字颜色 */
+    padding: 5px 5px; /* 内边距 */
+    border: none; /* 无边框 */
+    border-radius: 15px; /* 圆角 */
+    text-decoration: none; /* 无下划线 */
+    transition: background-color 0.2s; /* 背景色过渡效果 */
+	font-size: 20px; /* 调整文字大小 */
+	font-weight: bold;
+}
+
+.button_err:hover {
+    background-color: #188ed2 ; /* 悬停时按钮背景色 */
+	color: #96a6b0; /* 悬停时按钮文字颜色 */
+}
+
+/* 部门展示样式 */
+.section-title {
+    color: #61d2ff;
+    text-align: left;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* 部门按钮样式 */
+.department-header {
+    cursor: pointer;
+    padding: 15px;
+    background-color: #2f3947;
+    color: white;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-size: 18px;
+    margin: 10px 0;
+    transition: background-color 0.8s ease, color 1.6s ease;
+    position: relative;
+    border-radius: 5px;
+}
+
+.department-header:hover {
+    background-color: #6bbaea;
+    color: #333;
+}
+
+.department-header.active {
+    background-color: #61d2ff;
+    color: #333;
+}
+
+/* 箭头指示符 */
+.department-header::after {
+    content: '\25BC';
+    position: absolute;
+    right: 15px;
+    font-size: 18px;
+    transition: transform 0.5s ease;
+}
+
+.department-header.active::after {
+    transform: rotate(90deg); /* 点击时箭头翻转 */
+}
+
+/* 主页部门内容样式 */
+.department-h4 {
+    margin: 0; /* 去掉默认的外边距 */
+    padding: 6px;
+    color: #fff; /* 设置文本颜色（可根据需要调整） */
+    text-align: left; /* 左对齐文本 */
+}
+
+.department-content {
+    padding: 15px;
+    display: none;
+    background-color: #2f3947;
+    border-left: 5px solid #6bbaea;
+    color: #ddd;
+    border-radius: 0 5px 5px 5px;
+    animation: fadeIn 2s ease;
+	font-family: 'Arial', sans-serif; /* 更换为 Arial 字体 */
+}
+
+.department-content p {
+    margin: 0;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* 表单容器样式 */
+.activity-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 表单组样式 */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* 标签样式 */
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 输入框样式 */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+/* 鼠标悬停时输入框样式 */
+.form-control:hover {
+    border-color: #888;
+}
+
+/* 输入框聚焦时样式 */
+.form-control:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+/* 提交按钮样式 */
+.btn-submit {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* 鼠标悬停时的按钮样式 */
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+/* 表单最大宽度和居中 */
+.activity-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.article-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 输入框样式优化 */
+.form-control {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* 提交按钮样式 */
+.btn-submit {
+    padding: 10px 15px;
+    background-color: #5bcbf4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;  /* 将按钮设置为块级元素 */
+    margin: 20px auto; /* 自动设置左右边距来居中 */
+    width: fit-content; /* 根据内容自动调整宽度 */
+}
+
+.btn-submit:hover {
+    background-color: #188ed2 ; /* 悬停时按钮背景色 */
+	color: #96a6b0; /* 悬停时按钮文字颜色 */
 }

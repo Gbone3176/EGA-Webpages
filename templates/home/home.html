@@ -3,6 +3,172 @@
 {% block title %} {{ title }} {% endblock %}
 
 {% block content %}
-<h2>Home Page</h2>
-<p>Welcome back, {{ username }}!</p>
+
+<!-- 轮播图 -->
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{{ url_for('static', filename='home/home1.jpg') }}" class="d-block w-100" alt="Activity 1">
+        </div>
+        <div class="carousel-item">
+            <img src="{{ url_for('static', filename='home/home2.jpg') }}" class="d-block w-100" alt="Activity 2">
+        </div>
+        <div class="carousel-item">
+            <img src="{{ url_for('static', filename='home/home3.jpg') }}" class="d-block w-100" alt="Activity 3">
+        </div>
+        <div class="carousel-item">
+            <img src="{{ url_for('static', filename='home/home4.jpg') }}" class="d-block w-100" alt="Activity 4">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+{% if logged_in %}
+    <p>欢迎回到社团，{{ username }}!</p>
+{% else %}
+    <h2 class="section-title">社团简介</h2>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;在复旦大学邯郸校区的兴业光学楼三楼A302，有一个科技的秘密花园，一踏入这间实验室，便可见到各式的电路制作和调试仪器，同学们手持电烙铁，对正在制作的DIY作品进行焊接调试，旁边整齐排列的电子元器件如同他们手中的调色板，等待着为下一个作品赋予生命...<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;这里便是<b>电子创客社团</b>的工作室，一个由<b>复旦学生自主运营</b>的电子科技制作实验室。<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<b>电子创客社团（Electronic Geek Association, EGA）</b> ，成立于2015年，随后于2020年迁至邯郸校区，在社团成员的共同努力下，至今社团成员规模已达五百余人。社团不仅开放给电子信息相关专业的学生，任何对电子技术抱有热情的学生都可以加入，共同在这里开启科技探索之旅。
+        社团的核心使命是通过智能硬件DIY制作和技术科普活动，建立一个面向全校的科创实践与工科竞赛分享平台。在这里，无论成员的技术基础如何，都有机会通过参与实践活动和科创竞赛，提升自己的实践技能并实现自我超越。<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;社团提供一系列专业实验工具、仪表仪器和电子元件，以支持同学们开发各种创意项目和实验研究。社团工作室拥有多台先进的3D打印机，可以快速制作出精确的原型和零部件，为创意想法赋予实体形态。此外，工作室还提供多种单片机和树莓派等嵌入式硬件平台，这些平台具有强大的计算和控制能力，可用于开发智能设备、物联网应用和机器人等创新项目。<br>
+    </p>
+    <p>
+        通过 <a href="{{ url_for('login') }}" class="button">LOGIN</a> 或 <a href="{{ url_for('register') }}" class="button">REGISTER</a> 以了解更多！
+    </p>
+{% endif %}
+
+<!-- 社团部门信息 -->
+<h2 class="section-title">部门介绍</h2>
+
+<div class="departments">
+    <!-- 科创实践部 -->
+    <button class="department-header" data-dept="deptA">科创实践部</button>
+    <div id="deptA" class="department-content">
+        <h4 id="部门职能A" class="department-h4">
+            部门职能
+        </h4>
+        <p> <b>①</b> 3-5人为以小组，每小组设一主要负责人，带领社团成员开展原创项目或复刻他人的电创项目，将结果转化为社团的技术资料积累（产出一些资料，比如较为详细的操作步骤、物料清单、代码、注意事项等等），完成度较高者可以向运维宣传部提供完整文稿，以科普推文的形式在公众号上进行发布。物料清单经评估后，社团将提供一定的经费支持 </p>
+        <p> <b>②</b> 在参与电子类学科竞赛（电赛，光电赛，RobotMaster等）的过程中，社团将尽可能为核心成员提供场地和物料方面的支持，<b>此项对社团所有核心成员均有效</b></p>
+
+    </div>
+
+
+    <!-- 运维宣传部 -->
+    <button class="department-header" data-dept="deptB">运维宣传部</button>
+    <div id="deptB" class="department-content">
+        <h4 id="部门职能B" class="department-h4">
+            部门职能
+        </h4>
+        <p> <b>①</b> 负责负责公众号的运营（公众号的功能键维护，推文排版和发送）以及其他宣传物料的设计和制作（比如海报，展板，易拉宝等等）以及与外界合作（比如亚马逊的活动，会议或者讲座的咨询，能爆金币的那种）的宣传转发 </p>
+        <p> <b>②</b> 社团工作室维护，主要起到安全检查和物资设备消耗情况报备的作用，空间维护会由值班的成员每天进行维护</p>
+    </div>
+
+    <!-- 技术培训部 -->
+    <button class="department-header" data-dept="deptC">技术培训部</button>
+    <div id="deptC" class="department-content">
+        <h4 id="部门职能C" class="department-h4">
+            部门职能
+        </h4>
+        <p> <b>①</b> 参与协助电赛、光电赛等学科竞赛的培训活动的组织与开展 </p>
+        <p> <b>②</b> 在科普讲座、电赛培训与DIY实践活动承担起主讲人的角色，负责设计相应的培训资料（如ppt，讲解文稿，物料清单等等，由负责人归档），与活动策划部协商讲座开展时间和准备活动物料。 </p>
+    </div>
+
+    <!-- 活动策划部 -->
+    <button class="department-header" data-dept="deptD">活动策划部</button>
+    <div id="deptD" class="department-content">
+        <h4 id="部门职能D" class="department-h4">
+            部门职能
+        </h4>
+        <p> <b>①</b> 在保留节目单的基础上，提出活动的新创意、新想法和新设计，不断提升社团活动的趣味性和吸引力，对活动举办的效果进行记录和分析。</p>
+        <p> <b>②</b> 参与社团内建与对外活动组织与策划。主要负责如实践活动、科普讲座、电赛培训、团队内建等活动的前期策划，讲师签约（向技术培训部签约讲师），活动报名，现场的组织，活动的反馈总结与活动资料的归档（包括活动的支出发票，物料使用情况说明和多余物料处理等等。注意，此处不包括讲师的讲稿和ppt等资料） </p>
+    </div>
+</div>
+
+<script>
+    // 展开或折叠部门介绍
+    document.addEventListener('DOMContentLoaded', function() {
+        const departmentButtons = document.querySelectorAll('.department-header');
+        const departmentContents = document.querySelectorAll('.department-content');
+
+        // 隐藏所有部门内容
+        function hideAllContents() {
+            departmentContents.forEach(content => {
+                content.style.display = 'none';
+            });
+        }
+
+        // 处理按钮点击事件
+        departmentButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                hideAllContents(); // 隐藏所有内容
+                const deptId = this.getAttribute('data-dept'); // 获取按钮对应的部门ID
+                document.getElementById(deptId).style.display = 'block'; // 显示当前部门内容
+
+                // 增加点击效果
+                departmentButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // 默认显示第一个部门内容
+        hideAllContents(); // 先隐藏所有内容
+        if (departmentButtons.length > 0) {
+            document.getElementById(departmentButtons[0].getAttribute('data-dept')).style.display = 'block';
+            departmentButtons[0].classList.add('active');
+        }
+    });
+</script>
+
+<h2 class="section-title">项目博客</h2>
+<table>
+    <tr>
+        <th>Article Title</th>
+        <th>Published Date</th>
+        <th>Read it</th>
+        {% if logged_in %}
+            <th>Actions</th>
+        {% endif %}
+    </tr>
+    {% for article in articles %}
+    <tr>
+        <td>{{ article.title }}</td>
+        <td>{{ article.published_date }}</td>
+        <td>
+            <a href="{{ article.url }}" class="button">READ</a>
+        </td>
+        {% if logged_in %}
+            <td>
+                <a href="{{ url_for('edit_article', id=article.id) }}" class="button">Edit</a>
+                <a href="{{ url_for('delete_article', id=article.id) }}" class="button">Delete</a>
+            </td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+
+{% if logged_in %}
+    <!-- Add new article form only visible to logged-in users -->
+    <h6>Add New Article</h6>
+    <form action="{{ url_for('add_article') }}" method="post">
+        <input type="text" name="title" placeholder="Article Title" required>
+        <input type="date" name="published_date" required>
+        <input type="text" name="url" placeholder="URL" required>
+        <input type="submit" value="Add Article">
+    </form>
+{% endif %}
 {% endblock %}

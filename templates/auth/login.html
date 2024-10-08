@@ -1,6 +1,6 @@
 {% extends 'auth/auth_layout.html' %}
 {% block title %} {{ title }} {% endblock %}
-{% block content%}
+{% block content %}
 <div class="login">
     {% include "includes/alert.html" %}
     <h1>Login</h1>
@@ -20,5 +20,6 @@
         <div class="msg">{{ msg }}</div>
         <input type="submit" value="Login">
     </form>
+
 </div>
 {% endblock %}
