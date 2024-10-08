@@ -88,5 +88,5 @@ flask run
 
 
 ### 6. Acknowledgement
-This project was completed based on https://github.com/HarunMbaabu/Login-System-with-Python-Flask-and-MySQL, and I would like to express my sincere gratitude to https://github.com/HarunMbaabu/Login-System-with-Python-Flask-and-MySQL~
+This project was completed based on [Login-System-with-Python-Flask-and-MySQL](https://github.com/HarunMbaabu/Login-System-with-Python-Flask-and-MySQL), and I would like to express my sincere gratitude to it ~
 
